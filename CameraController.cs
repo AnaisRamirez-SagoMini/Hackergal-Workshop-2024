@@ -19,7 +19,7 @@ public class CameraController : MonoBehaviour {
 		Vector3 current = GetComponent<Transform>().position;
 
 		// get the target position
-		Vector3 target = jinjaTransform.position;
+		Vector3 target = jinjaTransform.position + Vector3.up;
 
 		// make sure the camera's z coordinate doesn't change
 		target.z = current.z;
