@@ -98,8 +98,14 @@ public class JinjaController : MonoBehaviour {
 		animator.ResetTrigger("Run");
 		animator.ResetTrigger("Jump");
 
+		//check if jinja is in the air
+		RaycastHit2D airHit = Physics2D.Raycast(tf.position, Vector3.down, 0.1f);
+		if (airHit.collider == null) {
+			// tell the animator to play the jump animation
+			animator.SetTrigger("Jump");
+		}
 		// check if the left or right arrow key is pressed
-		if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow) || Mathf.Abs(velocity.x) >= acceleration) {
+		else if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow) || Mathf.Abs(velocity.x) >= acceleration) {
 			//tell the animator to play the run animation
 			animator.SetTrigger("Run");
 		} else {
