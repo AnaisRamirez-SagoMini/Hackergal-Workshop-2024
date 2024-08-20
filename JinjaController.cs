@@ -99,13 +99,14 @@ public class JinjaController : MonoBehaviour {
 		animator.ResetTrigger("Jump");
 
 		// check if the left or right arrow key is pressed
-		if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow)) {
+		if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow) || Mathf.Abs(velocity.x) >= acceleration) {
 			//tell the animator to play the run animation
 			animator.SetTrigger("Run");
 		} else {
 			// tell the animator to play the idle animation
 			animator.SetTrigger("Idle");
-
+			//make jinja stop moving
+			velocity.x = 0;
 		}
 
 	}
