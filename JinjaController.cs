@@ -133,4 +133,14 @@ public class JinjaController : MonoBehaviour {
 		}
 
 	}
+
+	void OnTriggerEnter2D(Collider2D other) {
+
+		//check if jinja hit the sun
+		if (other.tag == "Finish") {
+			//play the sound
+			GetComponent<AudioSource>().Play();
+		}
+	}
+
 }
