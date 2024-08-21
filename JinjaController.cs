@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class JinjaController : MonoBehaviour {
 
@@ -22,6 +23,9 @@ public class JinjaController : MonoBehaviour {
 	// a field to store jinja's jump setting
 	[SerializeField]
 	float jump = 0.3f;
+
+	[SerializeField]
+	string sceneName = "";
 
 	// Start is called before the first frame update
 	void Start() {
@@ -140,6 +144,8 @@ public class JinjaController : MonoBehaviour {
 		if (other.tag == "Finish") {
 			//play the sound
 			GetComponent<AudioSource>().Play();
+
+			SceneManager.LoadScene(sceneName);
 		}
 	}
 
