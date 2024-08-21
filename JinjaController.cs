@@ -123,5 +123,14 @@ public class JinjaController : MonoBehaviour {
 			tf.localScale = new Vector3(movementDirection, 1, 1);
 		}
 
+		//RESPAWN
+
+		//has jinja fallen below the lowest platform?
+		if (tf.position.y < -10) {
+			// reset position and velocity
+			tf.position = Vector3.zero;
+			velocity = Vector3.zero;
+		}
+
 	}
 }
