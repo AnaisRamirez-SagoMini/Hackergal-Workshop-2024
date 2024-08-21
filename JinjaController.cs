@@ -144,9 +144,12 @@ public class JinjaController : MonoBehaviour {
 		if (other.tag == "Finish") {
 			//play the sound
 			GetComponent<AudioSource>().Play();
-
-			SceneManager.LoadScene(sceneName);
+			Invoke("ChangeScene", 1.5f);
 		}
+	}
+
+	void ChangeScene() {
+		SceneManager.LoadScene(sceneName);
 	}
 
 }
