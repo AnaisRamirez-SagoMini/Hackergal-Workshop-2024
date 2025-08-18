@@ -47,7 +47,8 @@ public class JinjaController : MonoBehaviour
 			velocity += Vector3.left * acceleration;
 		}
 
-		if (Input.GetKeyDown(KeyCode.Space))
+		// was the spacebar pressed and is jinja on a platform?
+		if (Input.GetKeyDown(KeyCode.Space) && IsJinjaOnPlatform())
 		{
 			// apply jump force
 			velocity.y = jump;
