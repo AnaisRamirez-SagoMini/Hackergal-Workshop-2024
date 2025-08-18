@@ -7,6 +7,14 @@ public class JinjaController : MonoBehaviour
 	// a field to store jinja's velocity
 	Vector3 velocity = Vector3.zero;
 
+	// a field to store jinja's acceleration setting
+	[SerializeField]
+	float acceleration = 0.1f;
+
+	// a field to store jinja's friction setting
+	[SerializeField]
+	float friction = 0.9f;
+
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -22,14 +30,17 @@ public class JinjaController : MonoBehaviour
 		if (Input.GetKey(KeyCode.RightArrow))
 		{
 			// move jinja one unit to the right
-			velocity += Vector3.right * 0.1f;
+			velocity += Vector3.right * acceleration;
 		}
 
 		if (Input.GetKey(KeyCode.LeftArrow))
 		{
 			// move jinja one unit to the left
-			velocity += Vector3.left * 0.1f;
+			velocity += Vector3.left * acceleration;
 		}
+
+		// apply friction
+		velocity.x *= friction;
 
 		// move jinja by her current velocity
 		tf.position += velocity;
