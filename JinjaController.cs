@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class JinjaController : MonoBehaviour
 {
+	// a field to store jinja's velocity
+	Vector3 velocity = Vector3.zero;
+
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -19,13 +22,16 @@ public class JinjaController : MonoBehaviour
 		if (Input.GetKey(KeyCode.RightArrow))
 		{
 			// move jinja one unit to the right
-			tf.position += Vector3.right * 0.1f;
+			velocity += Vector3.right * 0.1f;
 		}
 
 		if (Input.GetKey(KeyCode.LeftArrow))
 		{
 			// move jinja one unit to the left
-			tf.position += Vector3.left * 0.1f;
+			velocity += Vector3.left * 0.1f;
 		}
+
+		// move jinja by her current velocity
+		tf.position += velocity;
 	}
 }
