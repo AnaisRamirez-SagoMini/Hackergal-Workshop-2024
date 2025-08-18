@@ -19,6 +19,10 @@ public class JinjaController : MonoBehaviour
 	[SerializeField]
 	float gravity = 0.02f;
 
+	// a field to store jinja's jump setting
+	[SerializeField]
+	float jump = 0.3f;
+
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -43,6 +47,12 @@ public class JinjaController : MonoBehaviour
 			velocity += Vector3.left * acceleration;
 		}
 
+		if (Input.GetKeyDown(KeyCode.Space))
+		{
+			// apply jump force
+			velocity.y = jump;
+		}
+
 		// apply friction
 		velocity.x *= friction;
 
@@ -51,6 +61,8 @@ public class JinjaController : MonoBehaviour
 
 		// move jinja by her current velocity
 		tf.position += velocity;
+
+		CheckForCollision();
 	}
 
 	void CheckForCollision()
