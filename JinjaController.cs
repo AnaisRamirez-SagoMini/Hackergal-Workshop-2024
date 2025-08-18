@@ -21,5 +21,11 @@ public class JinjaController : MonoBehaviour
 			// move jinja one unit to the right
 			tf.position += Vector3.right * 0.1f;
 		}
+
+		if (Input.GetKey(KeyCode.LeftArrow))
+		{
+			// move jinja one unit to the left
+			tf.position += Vector3.left * 0.1f;
+		}
 	}
 }
