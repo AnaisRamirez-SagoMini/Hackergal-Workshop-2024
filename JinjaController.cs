@@ -90,4 +90,12 @@ public class JinjaController : MonoBehaviour
 			velocity.y = 0;
 		}
 	}
+
+	bool IsJinjaOnPlatform()
+	{
+		Transform tf = GetComponent<Transform>();
+		bool isJinjaOnPlatform =
+		Physics2D.Raycast(tf.position, Vector3.down, 0.1f).collider != null;
+		return isJinjaOnPlatform;
+	}
 }
