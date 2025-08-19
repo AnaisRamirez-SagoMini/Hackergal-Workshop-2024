@@ -81,7 +81,7 @@ public class JinjaController : MonoBehaviour
 		animator.ResetTrigger("Jump");
 
 		// check if jinja is in the air
-		if (!IsJinjaOnPlatform)
+		if (!IsJinjaOnPlatform())
 		{
 			// tell the animator to play the jump animation
 			animator.SetTrigger("Jump");
