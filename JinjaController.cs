@@ -64,6 +64,13 @@ public class JinjaController : MonoBehaviour
 		tf.position += velocity;
 
 		CheckForCollision();
+
+		if (Mathf.Abs(velocity.x) >= acceleration)
+		{
+			float direction = Mathf.Sign(velocity.x);
+
+			tf.localScale = new Vector3(direction, 1, 1);
+		}
 	}
 
 	void CheckForCollision()
