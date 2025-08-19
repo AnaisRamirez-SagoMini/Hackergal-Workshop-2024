@@ -100,6 +100,12 @@ public class JinjaController : MonoBehaviour
 			// make jinja stop moving
 			velocity.x = 0;
 		}
+
+		if (tf.position.y < -10)
+		{
+			tf.position = Vector3.zero;
+			velocity = Vector3.zero;
+		}
 	}
 
 	void CheckForCollision()
