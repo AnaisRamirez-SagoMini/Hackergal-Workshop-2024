@@ -65,11 +65,26 @@ public class JinjaController : MonoBehaviour
 
 		CheckForCollision();
 
+		// if jinja is moving
 		if (Mathf.Abs(velocity.x) >= acceleration)
 		{
+			// get direction from jinja's velocity, 1 or -1
 			float direction = Mathf.Sign(velocity.x);
-
+			// make her look the right way
 			tf.localScale = new Vector3(direction, 1, 1);
+		}
+
+		// get a reference to Animator component
+		Animator animator = GetComponentInChildren<Animator>();
+		animator.ResetTrigger("Idle");
+		animator.ResetTrigger("Run");
+		animator.ResetTrigger("Jump");
+
+		// check if the left or right arrow key is pressed
+		if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow))
+		{
+			// tell the animator to play the run animation
+			animator.SetTrigger("Run");
 		}
 	}
 
