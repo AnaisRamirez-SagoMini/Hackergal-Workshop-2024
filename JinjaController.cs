@@ -141,4 +141,14 @@ public class JinjaController : MonoBehaviour
 		Physics2D.Raycast(tf.position, Vector3.down, 0.1f).collider != null;
 		return isJinjaOnPlatform;
 	}
+
+	void OnTriggerEnter2D(Collider2D other)
+	{
+		// check if jinja hit the sun
+		if (other.tag == "Finish")
+		{
+			// play the sound
+			GetComponent<AudioSource>().Play();
+		}
+	}
 }
