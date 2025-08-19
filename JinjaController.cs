@@ -86,6 +86,11 @@ public class JinjaController : MonoBehaviour
 			// tell the animator to play the run animation
 			animator.SetTrigger("Run");
 		}
+		else
+		{
+			// tell the animator to play the idle animation
+			animator.SetTrigger("Idle");
+		}
 	}
 
 	void CheckForCollision()
