@@ -80,8 +80,13 @@ public class JinjaController : MonoBehaviour
 		animator.ResetTrigger("Run");
 		animator.ResetTrigger("Jump");
 
-		// check if the left or right arrow key is pressed or if jinja is moving
-		if (Input.GetKey(KeyCode.LeftArrow) ||
+		// check if jinja is in the air
+		if (!IsJinjaOnPlatform)
+		{
+			// tell the animator to play the jump animation
+			animator.SetTrigger("Jump");
+		}
+		else if (Input.GetKey(KeyCode.LeftArrow) ||
 		Input.GetKey(KeyCode.RightArrow) ||
 		Mathf.Abs(velocity.x) >= acceleration)
 		{
